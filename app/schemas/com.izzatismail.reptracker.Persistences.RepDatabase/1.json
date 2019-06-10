@@ -1,0 +1,171 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "d081be09221521ccff422cd6c7400ff0",
+    "entities": [
+      {
+        "tableName": "rep_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT, `timestamp` TEXT, `benchWeight` TEXT, `deadliftWeight` TEXT, `squatWeight` TEXT, `OHPWeight` TEXT, `rowWeight` TEXT, `benchRep` TEXT, `deadliftRep` TEXT, `squatRep` TEXT, `OHPRep` TEXT, `rowRep` TEXT, `benchFailure` TEXT, `deadliftFailure` TEXT, `squatFailure` TEXT, `OHPFailure` TEXT, `rowFailure` TEXT, `pullupRep` TEXT, `pullupFailure` TEXT, `curlWeight` TEXT, `curlRep` TEXT, `extWeight` TEXT, `extRep` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "benchWeight",
+            "columnName": "benchWeight",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deadliftWeight",
+            "columnName": "deadliftWeight",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "squatWeight",
+            "columnName": "squatWeight",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "OHPWeight",
+            "columnName": "OHPWeight",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "rowWeight",
+            "columnName": "rowWeight",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "benchRep",
+            "columnName": "benchRep",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deadliftRep",
+            "columnName": "deadliftRep",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "squatRep",
+            "columnName": "squatRep",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "OHPRep",
+            "columnName": "OHPRep",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "rowRep",
+            "columnName": "rowRep",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "benchFailure",
+            "columnName": "benchFailure",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "deadliftFailure",
+            "columnName": "deadliftFailure",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "squatFailure",
+            "columnName": "squatFailure",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "OHPFailure",
+            "columnName": "OHPFailure",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "rowFailure",
+            "columnName": "rowFailure",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "pullupRep",
+            "columnName": "pullupRep",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "pullupFailure",
+            "columnName": "pullupFailure",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "curlWeight",
+            "columnName": "curlWeight",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "curlRep",
+            "columnName": "curlRep",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "extWeight",
+            "columnName": "extWeight",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "extRep",
+            "columnName": "extRep",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"d081be09221521ccff422cd6c7400ff0\")"
+    ]
+  }
+}
