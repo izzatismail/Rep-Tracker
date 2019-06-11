@@ -1,41 +1,60 @@
 package com.izzatismail.reptracker.Fragments;
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.izzatismail.reptracker.Activities.AddNewRepActivity;
+import com.izzatismail.reptracker.Adapters.RepAdater;
 import com.izzatismail.reptracker.Models.Rep;
 import com.izzatismail.reptracker.R;
 import com.izzatismail.reptracker.ViewModels.RepViewModel;
 
 import java.util.List;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener{
 
     public static final String TAG = "HomeFragment";
     private RepViewModel mViewModel;
+    private FloatingActionButton mFab;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        View rootView = inflater.inflate(R.layout.fragment_home, container, false); //For Fragments, you have to inflate the view first
+        RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView_rep);
+        mFab = rootView.findViewById(R.id.floatingAB);
+        mFab.setOnClickListener(this);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+        recyclerView.setHasFixedSize(true);
+
+        final RepAdater repAdater = new RepAdater();
+        recyclerView.setAdapter(repAdater);
+
         mViewModel = ViewModelProviders.of(this).get(RepViewModel.class);
         mViewModel.getAllReps().observe(this, new Observer<List<Rep>>() {
             @Override
             public void onChanged(@Nullable List<Rep> reps) {
                 //Update RecyclerView
-                Toast.makeText(getContext(), "OnChanged", Toast.LENGTH_SHORT).show();
+                repAdater.setReps(reps);
             }
         });
 
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return rootView;
     }
 
     /* Lifecycle */
@@ -67,5 +86,10 @@ public class HomeFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         Log.d(TAG, "onDestroy: called");
+    }
+
+    @Override
+    public void onClick(View v) {
+        startActivity(new Intent(getActivity(), AddNewRepActivity.class));
     }
 }

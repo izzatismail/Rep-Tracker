@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="100"
+    android:padding="10dp"
+    tools:context=".Activities.MoreAddNewRepActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/isolations"
+        android:layout_margin="4dp"
+        android:textColor="@color/black"
+        android:id="@+id/textIsolations"
+        android:textSize="15sp" />
+
+    <!--Curls-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/curl_weight"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textIsolations"
+        android:layout_margin="4dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/curl">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/curl_weight_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textSize="15sp"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/curl_rep"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textIsolations"
+        android:layout_toEndOf="@+id/curl_weight"
+        android:layout_margin="4dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/rep">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/curl_rep_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textSize="15sp"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/curl_set"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textIsolations"
+        android:layout_toEndOf="@+id/curl_rep"
+        android:layout_margin="4dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/set">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/curl_set_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textSize="15sp"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--Extensions-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ext_weight"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/curl_weight"
+        android:layout_margin="4dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/ext">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ext_weight_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textSize="15sp"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ext_rep"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/curl_weight"
+        android:layout_toEndOf="@+id/ext_weight"
+        android:layout_margin="4dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/rep">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ext_rep_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textSize="15sp"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ext_set"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/curl_weight"
+        android:layout_toEndOf="@+id/ext_rep"
+        android:layout_margin="4dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/set">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ext_set_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textSize="15sp"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bodyweight"
+        android:layout_margin="4dp"
+        android:id="@+id/textBodyweight"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:layout_below="@+id/ext_weight"/>
+
+    <!--Pull Ups-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pullup_rep"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textBodyweight"
+        android:layout_margin="4dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/pullrep">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pullup_rep_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textSize="15sp"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pullup_set"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textBodyweight"
+        android:layout_toEndOf="@+id/pullup_rep"
+        android:layout_margin="4dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/set">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pullup_set_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textSize="15sp"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--Push Ups-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pushup_rep"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pullup_rep"
+        android:layout_margin="4dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/pushrep">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pushup_rep_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textSize="15sp"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pushup_set"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pullup_rep"
+        android:layout_toEndOf="@+id/pushup_rep"
+        android:layout_margin="4dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/set">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pushup_set_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textSize="15sp"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/pushup_rep"
+        android:layout_toEndOf="@+id/pushup_set"/>
+
+</RelativeLayout>
