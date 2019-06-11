@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
@@ -21,6 +22,7 @@ import com.izzatismail.reptracker.Activities.AddNewRepActivity;
 import com.izzatismail.reptracker.Adapters.RepAdater;
 import com.izzatismail.reptracker.Models.Rep;
 import com.izzatismail.reptracker.R;
+import com.izzatismail.reptracker.Util.VerticalSpacingItemDecorator;
 import com.izzatismail.reptracker.ViewModels.RepViewModel;
 
 import java.util.List;
@@ -37,6 +39,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
         View rootView = inflater.inflate(R.layout.fragment_home, container, false); //For Fragments, you have to inflate the view first
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView_rep);
+        VerticalSpacingItemDecorator itemDecorator = new VerticalSpacingItemDecorator(20);
+        recyclerView.addItemDecoration(itemDecorator);
         mFab = rootView.findViewById(R.id.floatingAB);
         mFab.setOnClickListener(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
@@ -53,6 +57,19 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 repAdater.setReps(reps);
             }
         });
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                mViewModel.delete(repAdater.getRepAt(viewHolder.getAdapterPosition())); //Swipe to delete
+                Toast.makeText(getActivity(), "Record Deleted", Toast.LENGTH_SHORT).show();
+            }
+        }).attachToRecyclerView(recyclerView);
 
         return rootView;
     }
