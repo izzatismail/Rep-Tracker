@@ -24,6 +24,6 @@ public interface RepDao {
     @Delete
     void delete(Rep rep);
 
-    @Query("SELECT * FROM rep_table")
+    @Query("SELECT * FROM rep_table ORDER BY timestamp DESC")
     LiveData<List<Rep>> getAllRep();
 }
