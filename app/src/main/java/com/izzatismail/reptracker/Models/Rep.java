@@ -97,6 +97,9 @@ public class Rep implements Parcelable {
     @ColumnInfo(name = "extension set")
     private String extSet;
 
+    public Rep() {
+    }
+
     public Rep(String title, String timestamp, String bodyweight, String benchWeight, String deadliftWeight, String squatWeight, String OHPWeight, String rowWeight, String benchRep, String deadliftRep, String squatRep, String OHPRep, String rowRep, String benchSet, String deadliftSet, String squatSet, String OHPSet, String rowSet, String pullupRep, String pullupSet, String pushupRep, String pushupSet, String curlWeight, String curlRep, String curlSet, String extWeight, String extRep, String extSet) {
         this.title = title;
         this.timestamp = timestamp;
