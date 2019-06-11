@@ -8,7 +8,7 @@ public class Utility {
     public static String getCurrentTimeStamp(){
 
         try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             String currentDateTime = dateFormat.format(new Date());
             return currentDateTime;
         }catch (Exception e){
