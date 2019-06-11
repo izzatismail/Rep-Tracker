@@ -8,7 +8,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.izzatismail.reptracker.Models.Rep;
+import com.izzatismail.reptracker.Persistences.RepRepository;
 import com.izzatismail.reptracker.R;
 import com.izzatismail.reptracker.Util.Utility;
 
@@ -21,6 +24,9 @@ public class MoreAddNewRepActivity extends AppCompatActivity implements View.OnC
             mOHPW, mOHPR, mOHPS,
             msquatW, msquatR, msquatS,
             mdeadliftW, mdeadliftR, mdeadliftS;
+
+    private Rep mRep;
+    private RepRepository mRepRepository;
 
     String CurlW, CurlR, CurlS, ExtW, ExtS,
             ExtR, PullR, PullS,
@@ -36,6 +42,11 @@ public class MoreAddNewRepActivity extends AppCompatActivity implements View.OnC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more_add_new_rep);
+
+        mRepRepository = new RepRepository(this);
+        mRep = new Rep();
+
+        Log.d(TAG, "onCreate: Created");
 
         getFromIntent();
         initWidgets();
@@ -91,6 +102,42 @@ public class MoreAddNewRepActivity extends AppCompatActivity implements View.OnC
         toStringAndValidation();
 
         String timestamp = Utility.getCurrentTimeStamp();
+
+        mRep.setTitle(mTraining);
+        mRep.setBodyweight(mBW);
+        mRep.setTimestamp(timestamp);
+        mRep.setBenchWeight(mbenchW);
+        mRep.setBenchRep(mbenchR);
+        mRep.setBenchSet(mbenchS);
+        mRep.setOHPRep(mOHPR);
+        mRep.setOHPSet(mOHPS);
+        mRep.setOHPWeight(mOHPW);
+        mRep.setSquatRep(msquatR);
+        mRep.setSquatSet(msquatS);
+        mRep.setSquatWeight(msquatW);
+        mRep.setDeadliftRep(mdeadliftR);
+        mRep.setDeadliftWeight(mdeadliftW);
+        mRep.setDeadliftSet(mdeadliftS);
+        mRep.setRowWeight(mrowW);
+        mRep.setRowRep(mrowR);
+        mRep.setRowSet(mrowS);
+        mRep.setPullupRep(PullR);
+        mRep.setPullupSet(PullS);
+        mRep.setPushupRep(PushR);
+        mRep.setPushupSet(PushS);
+        mRep.setCurlRep(CurlR);
+        mRep.setCurlSet(CurlS);
+        mRep.setCurlWeight(CurlW);
+        mRep.setExtRep(ExtR);
+        mRep.setExtSet(ExtS);
+        mRep.setExtWeight(ExtW);
+
+        mRepRepository.insert(mRep);
+
+        Toast.makeText(getApplicationContext(), "Saved Successfully",
+                Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(MoreAddNewRepActivity.this, MainActivity.class));
+        finish();
     }
 
     private void initWidgets() {
