@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "d081be09221521ccff422cd6c7400ff0",
+    "identityHash": "e32061ef11f742b675a277f840ab8b27",
     "entities": [
       {
         "tableName": "rep_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT, `timestamp` TEXT, `benchWeight` TEXT, `deadliftWeight` TEXT, `squatWeight` TEXT, `OHPWeight` TEXT, `rowWeight` TEXT, `benchRep` TEXT, `deadliftRep` TEXT, `squatRep` TEXT, `OHPRep` TEXT, `rowRep` TEXT, `benchFailure` TEXT, `deadliftFailure` TEXT, `squatFailure` TEXT, `OHPFailure` TEXT, `rowFailure` TEXT, `pullupRep` TEXT, `pullupFailure` TEXT, `curlWeight` TEXT, `curlRep` TEXT, `extWeight` TEXT, `extRep` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT, `timestamp` TEXT, `bodyweight` TEXT, `bench weight` TEXT, `deadlift weight` TEXT, `squat weight` TEXT, `ohp weight` TEXT, `row weight` TEXT, `bench rep` TEXT, `deadlift rep` TEXT, `squat rep` TEXT, `ohp rep` TEXT, `row rep` TEXT, `bench set` TEXT, `deadlift set` TEXT, `squat set` TEXT, `ohp set` TEXT, `row set` TEXT, `pullup rep` TEXT, `pullup set` TEXT, `pushup rep` TEXT, `pushup set` TEXT, `curl weight` TEXT, `curl rep` TEXT, `curl set` TEXT, `extension weight` TEXT, `extension rep` TEXT, `extension set` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -27,128 +27,158 @@
             "notNull": false
           },
           {
+            "fieldPath": "bodyweight",
+            "columnName": "bodyweight",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
             "fieldPath": "benchWeight",
-            "columnName": "benchWeight",
+            "columnName": "bench weight",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "deadliftWeight",
-            "columnName": "deadliftWeight",
+            "columnName": "deadlift weight",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "squatWeight",
-            "columnName": "squatWeight",
+            "columnName": "squat weight",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "OHPWeight",
-            "columnName": "OHPWeight",
+            "columnName": "ohp weight",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "rowWeight",
-            "columnName": "rowWeight",
+            "columnName": "row weight",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "benchRep",
-            "columnName": "benchRep",
+            "columnName": "bench rep",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "deadliftRep",
-            "columnName": "deadliftRep",
+            "columnName": "deadlift rep",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "squatRep",
-            "columnName": "squatRep",
+            "columnName": "squat rep",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "OHPRep",
-            "columnName": "OHPRep",
+            "columnName": "ohp rep",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "rowRep",
-            "columnName": "rowRep",
+            "columnName": "row rep",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "benchFailure",
-            "columnName": "benchFailure",
+            "fieldPath": "benchSet",
+            "columnName": "bench set",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "deadliftFailure",
-            "columnName": "deadliftFailure",
+            "fieldPath": "deadliftSet",
+            "columnName": "deadlift set",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "squatFailure",
-            "columnName": "squatFailure",
+            "fieldPath": "squatSet",
+            "columnName": "squat set",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "OHPFailure",
-            "columnName": "OHPFailure",
+            "fieldPath": "OHPSet",
+            "columnName": "ohp set",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "rowFailure",
-            "columnName": "rowFailure",
+            "fieldPath": "rowSet",
+            "columnName": "row set",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "pullupRep",
-            "columnName": "pullupRep",
+            "columnName": "pullup rep",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "pullupFailure",
-            "columnName": "pullupFailure",
+            "fieldPath": "pullupSet",
+            "columnName": "pullup set",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "pushupRep",
+            "columnName": "pushup rep",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "pushupSet",
+            "columnName": "pushup set",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "curlWeight",
-            "columnName": "curlWeight",
+            "columnName": "curl weight",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "curlRep",
-            "columnName": "curlRep",
+            "columnName": "curl rep",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "curlSet",
+            "columnName": "curl set",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "extWeight",
-            "columnName": "extWeight",
+            "columnName": "extension weight",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "extRep",
-            "columnName": "extRep",
+            "columnName": "extension rep",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "extSet",
+            "columnName": "extension set",
             "affinity": "TEXT",
             "notNull": false
           }
@@ -165,7 +195,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"d081be09221521ccff422cd6c7400ff0\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"e32061ef11f742b675a277f840ab8b27\")"
     ]
   }
 }
