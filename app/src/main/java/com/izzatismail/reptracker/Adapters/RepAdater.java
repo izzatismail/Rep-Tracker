@@ -30,10 +30,10 @@ public class RepAdater extends RecyclerView.Adapter<RepAdater.RepHolder> {
     public void onBindViewHolder(@NonNull RepHolder repHolder, int i) {
         Rep currentRep = mRep.get(i);
         repHolder.textTitle.setText(currentRep.getTitle());
-        String day = currentRep.getTimestamp().substring(0,1);
-        String month = currentRep.getTimestamp().substring(3,4);
+        String day = currentRep.getTimestamp().substring(0,2);
+        String month = currentRep.getTimestamp().substring(3,5);
         month = Utility.getMonthFromNumber(month);
-        String year = currentRep.getTimestamp().substring(6);
+        String year = currentRep.getTimestamp().substring(6,10);
         String timestamp = day + " " + month + " " + year;
         repHolder.textTimestamp.setText(timestamp);
     }
@@ -46,6 +46,10 @@ public class RepAdater extends RecyclerView.Adapter<RepAdater.RepHolder> {
     public void setReps(List<Rep> reps){
         this.mRep = reps;
         notifyDataSetChanged();
+    }
+
+    public Rep getRepAt(int position){
+        return mRep.get(position);
     }
 
     class RepHolder extends RecyclerView.ViewHolder{
