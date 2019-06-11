@@ -4,4 +4,25 @@
     <string name="history">History</string>
     <string name="chart">Chart</string>
     <string name="saved">Home</string>
+    <string name="training_day">Training Day*</string>
+    <string name="bench_press">Bench Press (kg)</string>
+    <string name="deadlift">Deadlift (kg)</string>
+    <string name="OHP">Overhead Press (kg)</string>
+    <string name="squat">Squat (kg)</string>
+    <string name="row">Row (kg)</string>
+    <string name="curl">Curl (kg)</string>
+    <string name="ext">Extension (kg)</string>
+    <string name="rep">Rep</string>
+    <string name="set">Set</string>
+    <string name="pullrep">Pull up Rep</string>
+    <string name="pushrep">Push up Rep</string>
+    <string name="compound">Compounds</string>
+    <string name="bodyweight">Bodyweights</string>
+    <string name="isolations">Isolations</string>
+    <string name="new_data">Today\'s Workout</string>
+    <string name="go_back">Back</string>
+    <string name="next">Next</string>
+    <string name="save">Save</string>
+    <string name="bw">Body Weight (kg)</string>
+
 </resources>
