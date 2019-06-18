@@ -1,5 +1,7 @@
 package com.izzatismail.reptracker.Fragments;
 
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -16,12 +18,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.izzatismail.reptracker.Activities.AddNewRepActivity;
 import com.izzatismail.reptracker.Adapters.RepAdater;
 import com.izzatismail.reptracker.Models.Rep;
 import com.izzatismail.reptracker.R;
+import com.izzatismail.reptracker.Util.RepDialog;
 import com.izzatismail.reptracker.Util.VerticalSpacingItemDecorator;
 import com.izzatismail.reptracker.ViewModels.RepViewModel;
 
@@ -32,16 +35,18 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     public static final String TAG = "HomeFragment";
     private RepViewModel mViewModel;
     private FloatingActionButton mFab;
+    CoordinatorLayout coordinatorLayout;
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)  {
 
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false); //For Fragments, you have to inflate the view first
+        final View rootView = inflater.inflate(R.layout.fragment_home, container, false); //For Fragments, you have to inflate the view first
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView_rep);
         VerticalSpacingItemDecorator itemDecorator = new VerticalSpacingItemDecorator(20);
         recyclerView.addItemDecoration(itemDecorator);
         mFab = rootView.findViewById(R.id.floatingAB);
+        coordinatorLayout = rootView.findViewById(R.id.coordinatorLayout);
         mFab.setOnClickListener(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         recyclerView.setHasFixedSize(true);
@@ -54,7 +59,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             @Override
             public void onChanged(@Nullable List<Rep> reps) {
                 //Update RecyclerView
-                repAdater.setReps(reps);
+                repAdater.submitList(reps);
             }
         });
 
@@ -67,9 +72,26 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 mViewModel.delete(repAdater.getRepAt(viewHolder.getAdapterPosition())); //Swipe to delete
-                Toast.makeText(getActivity(), "Record Deleted", Toast.LENGTH_SHORT).show();
+                Snackbar.make(coordinatorLayout, "Record Deleted Successfully", Snackbar.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(recyclerView);
+
+        repAdater.setOnItemClickListener(new RepAdater.OnItemClickListener() {
+            @Override
+            public void onItemClick(Rep rep) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                Fragment prev = getFragmentManager().findFragmentByTag("dialog");
+                if (prev != null) {
+                    ft.remove(prev);
+                }
+                ft.addToBackStack(null);
+
+                RepDialog repDialog = RepDialog.newInstance(rep);
+                Log.d(TAG, "onItemClick: Selected Note : " + rep.toString());
+
+                repDialog.show(ft, "Rep Dialog");
+            }
+        });
 
         return rootView;
     }

@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="25dp">
+
+    <!--Compounds-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/compound"
+        android:id="@+id/compoundDialog"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/weight"
+        android:id="@+id/weight"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@+id/benchDialog"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rep"
+        android:id="@+id/repitions"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@+id/weight"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/set"
+        android:id="@+id/ohpDialog_set"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/repitions"
+        android:textColor="@color/black"/>
+
+    <!--Bench Press-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bp"
+        android:id="@+id/benchDialog"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/compoundDialog"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100"
+        android:id="@+id/benchDialog_weightText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/compoundDialog"
+        android:layout_marginStart="40dp"
+        android:layout_toEndOf="@+id/benchDialog"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:id="@+id/benchDialog_repText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/compoundDialog"
+        android:layout_marginStart="24dp"
+        android:layout_toEndOf="@+id/weight"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:id="@+id/benchDialog_setText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/compoundDialog"
+        android:layout_marginStart="35dp"
+        android:layout_toEndOf="@+id/benchDialog_repText"
+        android:textColor="@color/black"/>
+
+    <!--Row-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/r"
+        android:id="@+id/rowDialog"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/benchDialog"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100"
+        android:id="@+id/rowDialog_weightText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/benchDialog"
+        android:layout_marginStart="40dp"
+        android:layout_toEndOf="@+id/benchDialog"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:id="@+id/rowDialog_repText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/benchDialog"
+        android:layout_marginStart="24dp"
+        android:layout_toEndOf="@+id/weight"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:id="@+id/rowDialog_setText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/benchDialog"
+        android:layout_marginStart="35dp"
+        android:layout_toEndOf="@+id/benchDialog_repText"
+        android:textColor="@color/black"/>
+
+    <!--OHP-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/op"
+        android:id="@+id/ohpDialog"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/rowDialog"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100"
+        android:id="@+id/ohpDialog_weightText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/rowDialog"
+        android:layout_marginStart="40dp"
+        android:layout_toEndOf="@+id/benchDialog"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:id="@+id/ohpDialog_repText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/rowDialog"
+        android:layout_marginStart="24dp"
+        android:layout_toEndOf="@+id/weight"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:id="@+id/ohpDialog_setText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/rowDialog"
+        android:layout_marginStart="35dp"
+        android:layout_toEndOf="@+id/benchDialog_repText"
+        android:textColor="@color/black"/>
+
+
+
+    <!--Squat-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sq"
+        android:id="@+id/squatDialog"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/ohpDialog"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100"
+        android:id="@+id/squatDialog_weightText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/ohpDialog"
+        android:layout_marginStart="40dp"
+        android:layout_toEndOf="@+id/benchDialog"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:id="@+id/squatDialog_repText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/ohpDialog"
+        android:layout_marginStart="24dp"
+        android:layout_toEndOf="@+id/weight"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:id="@+id/squatDialog_setText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/ohpDialog"
+        android:layout_marginStart="35dp"
+        android:layout_toEndOf="@+id/benchDialog_repText"
+        android:textColor="@color/black"/>
+
+    <!--Deadlift-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dl"
+        android:id="@+id/dlDialog"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/squatDialog"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100"
+        android:id="@+id/dlDialog_weightText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/squatDialog"
+        android:layout_marginStart="40dp"
+        android:layout_toEndOf="@+id/benchDialog"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:id="@+id/dlDialog_repText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/squatDialog"
+        android:layout_marginStart="24dp"
+        android:layout_toEndOf="@+id/weight"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:id="@+id/dlDialog_setText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/squatDialog"
+        android:layout_marginStart="35dp"
+        android:layout_toEndOf="@+id/benchDialog_repText"
+        android:textColor="@color/black"/>
+
+    <!--Isolations-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/isolations"
+        android:id="@+id/isolationsDialog"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/dlDialog"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <!--Curl-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/c"
+        android:id="@+id/curlDialog"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/isolationsDialog"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100"
+        android:id="@+id/curlDialog_weightText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/isolationsDialog"
+        android:layout_marginStart="40dp"
+        android:layout_toEndOf="@+id/benchDialog"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:id="@+id/curlDialog_repText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/isolationsDialog"
+        android:layout_marginStart="24dp"
+        android:layout_toEndOf="@+id/weight"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:id="@+id/curlDialog_setText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/isolationsDialog"
+        android:layout_marginStart="35dp"
+        android:layout_toEndOf="@+id/benchDialog_repText"
+        android:textColor="@color/black"/>
+
+    <!--Ext-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/e"
+        android:id="@+id/extDialog"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/curlDialog"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100"
+        android:id="@+id/extDialog_weightText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/curlDialog"
+        android:layout_marginStart="40dp"
+        android:layout_toEndOf="@+id/benchDialog"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:id="@+id/extDialog_repText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/curlDialog"
+        android:layout_marginStart="24dp"
+        android:layout_toEndOf="@+id/weight"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:id="@+id/extDialog_setText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/curlDialog"
+        android:layout_marginStart="35dp"
+        android:layout_toEndOf="@+id/benchDialog_repText"
+        android:textColor="@color/black"/>
+
+    <!--Bodyweight-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bodyweight"
+        android:id="@+id/bwDialog"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/extDialog"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <!--Pullup-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pull"
+        android:id="@+id/pullDialog"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/bwDialog"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:id="@+id/pullDialog_repText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/bwDialog"
+        android:layout_marginStart="24dp"
+        android:layout_toEndOf="@+id/weight"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:id="@+id/pullDialog_setText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/bwDialog"
+        android:layout_marginStart="35dp"
+        android:layout_toEndOf="@+id/benchDialog_repText"
+        android:textColor="@color/black"/>
+
+    <!--Pushup-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/push"
+        android:id="@+id/pushDialog"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/pullDialog"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:id="@+id/pushDialog_repText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/pullDialog"
+        android:layout_marginStart="24dp"
+        android:layout_toEndOf="@+id/weight"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:id="@+id/pushDialog_setText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/pullDialog"
+        android:layout_marginStart="35dp"
+        android:layout_toEndOf="@+id/benchDialog_repText"
+        android:textColor="@color/black"/>
+
+    <!--Bodyweight-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/body"
+        android:id="@+id/bodyDialog"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/pushDialog"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100"
+        android:id="@+id/bodyDialog_weightText"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/pushDialog"
+        android:layout_marginStart="40dp"
+        android:layout_toEndOf="@+id/benchDialog"
+        android:textColor="@color/black"/>
+
+</RelativeLayout>
