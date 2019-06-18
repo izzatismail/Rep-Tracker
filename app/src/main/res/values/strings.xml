@@ -16,6 +16,8 @@
     <string name="set">Set</string>
     <string name="pullrep">Pull up Rep</string>
     <string name="pushrep">Push up Rep</string>
+    <string name="pull">Pull up</string>
+    <string name="push">Push up</string>
     <string name="compound">Compounds</string>
     <string name="bodyweight">Bodyweights</string>
     <string name="isolations">Isolations</string>
@@ -24,5 +26,14 @@
     <string name="next">Next</string>
     <string name="save">Save</string>
     <string name="bw">Body Weight (kg)</string>
+    <string name="body">Body Weight</string>
+    <string name="weight">Weight (kg)</string>
+    <string name="bp">Bench Press</string>
+    <string name="dl">Deadlift</string>
+    <string name="op">Overhead Press</string>
+    <string name="sq">Squat</string>
+    <string name="r">Row</string>
+    <string name="c">Curl</string>
+    <string name="e">Extension</string>
 
 </resources>
