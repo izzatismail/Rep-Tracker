@@ -1,6 +1,8 @@
 package com.izzatismail.reptracker.Adapters;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,9 +16,25 @@ import com.izzatismail.reptracker.Util.Utility;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepAdater extends RecyclerView.Adapter<RepAdater.RepHolder> {
+public class RepAdater extends ListAdapter<Rep, RepAdater.RepHolder> {
+    private OnItemClickListener listener;
 
-    private List<Rep> mRep = new ArrayList<>();
+    public RepAdater() {
+        super(DIFF_CALLBACK);
+    }
+
+    private static final DiffUtil.ItemCallback<Rep> DIFF_CALLBACK = new DiffUtil.ItemCallback<Rep>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull Rep oldItem, @NonNull Rep newItem) {
+            return oldItem.getId() == newItem.getId();
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull Rep oldItem, @NonNull Rep newItem) {
+            return oldItem.getTitle().equals(newItem.getTitle()) &&
+                    oldItem.getTimestamp().equals(newItem.getTimestamp());
+        }
+    };
 
     @NonNull
     @Override
@@ -28,7 +46,7 @@ public class RepAdater extends RecyclerView.Adapter<RepAdater.RepHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull RepHolder repHolder, int i) {
-        Rep currentRep = mRep.get(i);
+        Rep currentRep = getItem(i);
         repHolder.textTitle.setText(currentRep.getTitle());
         String day = currentRep.getTimestamp().substring(0,2);
         String month = currentRep.getTimestamp().substring(3,5);
@@ -38,27 +56,35 @@ public class RepAdater extends RecyclerView.Adapter<RepAdater.RepHolder> {
         repHolder.textTimestamp.setText(timestamp);
     }
 
-    @Override
-    public int getItemCount() {
-        return mRep.size();
-    }
-
-    public void setReps(List<Rep> reps){
-        this.mRep = reps;
-        notifyDataSetChanged();
-    }
-
     public Rep getRepAt(int position){
-        return mRep.get(position);
+        return getItem(position);
     }
 
-    class RepHolder extends RecyclerView.ViewHolder{
+    class RepHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView textTitle, textTimestamp;
 
         public RepHolder(@NonNull View itemView) {
             super(itemView);
             textTitle = itemView.findViewById(R.id.rep_title);
             textTimestamp = itemView.findViewById(R.id.rep_timestamp);
+
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            int position = getAdapterPosition();
+            if(listener != null && position != RecyclerView.NO_POSITION)
+                listener.onItemClick(getItem(position));
+        }
+    }
+
+    /* Best practice for onClickListener for best performance */
+    public interface OnItemClickListener{
+        void onItemClick(Rep rep);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        this.listener = listener;
     }
 }
