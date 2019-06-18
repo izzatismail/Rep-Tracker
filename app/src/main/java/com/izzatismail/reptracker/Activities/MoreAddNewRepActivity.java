@@ -136,8 +136,10 @@ public class MoreAddNewRepActivity extends AppCompatActivity implements View.OnC
 
         Toast.makeText(getApplicationContext(), "Saved Successfully",
                 Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(MoreAddNewRepActivity.this, MainActivity.class));
         finish();
+        Intent intent = new Intent(MoreAddNewRepActivity.this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//Clear activity on top of the stack
+        startActivity(intent);
     }
 
     private void initWidgets() {
