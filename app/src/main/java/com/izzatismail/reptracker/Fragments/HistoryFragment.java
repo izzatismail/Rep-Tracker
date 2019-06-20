@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.izzatismail.reptracker.Activities.MainActivity;
 import com.izzatismail.reptracker.R;
 
 public class HistoryFragment extends Fragment {
@@ -18,6 +19,7 @@ public class HistoryFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        ((MainActivity)getActivity()).setActionBarTitle("Workout Days");
         return inflater.inflate(R.layout.fragment_history, container, false);
     }
 

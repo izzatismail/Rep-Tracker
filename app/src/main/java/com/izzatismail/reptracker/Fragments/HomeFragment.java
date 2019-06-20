@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.izzatismail.reptracker.Activities.AddNewRepActivity;
+import com.izzatismail.reptracker.Activities.MainActivity;
 import com.izzatismail.reptracker.Adapters.RepAdater;
 import com.izzatismail.reptracker.Models.Rep;
 import com.izzatismail.reptracker.R;
@@ -43,6 +44,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
         final View rootView = inflater.inflate(R.layout.fragment_home, container, false); //For Fragments, you have to inflate the view first
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView_rep);
+        ((MainActivity)getActivity()).setActionBarTitle("Rep Tracker");
         VerticalSpacingItemDecorator itemDecorator = new VerticalSpacingItemDecorator(20);
         recyclerView.addItemDecoration(itemDecorator);
         mFab = rootView.findViewById(R.id.floatingAB);
