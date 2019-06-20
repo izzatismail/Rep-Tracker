@@ -46,4 +46,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         return true;
     }
+
+    public void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
+    }
 }
