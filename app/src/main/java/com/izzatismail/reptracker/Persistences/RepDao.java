@@ -26,4 +26,7 @@ public interface RepDao {
 
     @Query("SELECT * FROM rep_table ORDER BY timestamp DESC")
     LiveData<List<Rep>> getAllRep();
+
+    @Query("SELECT * FROM rep_table ORDER BY timestamp ASC")
+    LiveData<List<Rep>> getAllRepAsc();
 }

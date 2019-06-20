@@ -32,4 +32,8 @@ public class RepRepository {
     public LiveData<List<Rep>> retrieveRepTask(){
         return mRepDatabase.getRepDao().getAllRep();
     }
+
+    public LiveData<List<Rep>> retrieveRepTaskAsc(){
+        return mRepDatabase.getRepDao().getAllRepAsc();
+    }
 }
