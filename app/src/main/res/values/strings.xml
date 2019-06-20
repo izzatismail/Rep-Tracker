@@ -35,5 +35,5 @@
     <string name="r">Row</string>
     <string name="c">Curl</string>
     <string name="e">Extension</string>
-
+    <string name="progress">Compound Progress</string>
 </resources>
