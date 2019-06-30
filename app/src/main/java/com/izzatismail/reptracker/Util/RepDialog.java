@@ -7,18 +7,22 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.izzatismail.reptracker.Models.Rep;
 import com.izzatismail.reptracker.R;
+import com.izzatismail.reptracker.ViewModels.RepViewModel;
 
 public class RepDialog extends DialogFragment {
 
     public static final String TAG = "RepDialog";
+    private RepViewModel mViewModel;
 
     private TextView mBenchW, mBenchR, mBenchS, mRowW, mRowR, mRowS,
         mOHPW, mOHPR, mOHPS, mSquatR, mSquatW, mSquatS,
@@ -34,8 +38,10 @@ public class RepDialog extends DialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.layout_selected_day, null);
 
+        mViewModel = ViewModelProviders.of(this).get(RepViewModel.class);
+
         Bundle bundle = getArguments();
-        Rep rep = bundle.getParcelable("Selected Rep");
+        final Rep rep = bundle.getParcelable("Selected Rep");
         Log.d(TAG, "onCreateDialog: Parsed note : " + rep.toString());
 
         initializeWidget(view);
@@ -52,7 +58,8 @@ public class RepDialog extends DialogFragment {
                 .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        mViewModel.delete(rep);
+                        Toast.makeText(getActivity(), "Record Deleted Successfully", Toast.LENGTH_SHORT).show();
                     }
                 });
         return builder.create();
