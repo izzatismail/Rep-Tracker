@@ -44,4 +44,7 @@ dependencies {
 
     //Graph
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    //Custom Calendar
+    implementation 'com.github.sundeepk:compact-calendar-view:3.0.0'
 }
