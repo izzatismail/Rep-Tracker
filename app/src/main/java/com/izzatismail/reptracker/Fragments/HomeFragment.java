@@ -36,7 +36,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     public static final String TAG = "HomeFragment";
     private RepViewModel mViewModel;
     private FloatingActionButton mFab;
-    CoordinatorLayout coordinatorLayout;
 
     @Nullable
     @Override
@@ -48,7 +47,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         VerticalSpacingItemDecorator itemDecorator = new VerticalSpacingItemDecorator(20);
         recyclerView.addItemDecoration(itemDecorator);
         mFab = rootView.findViewById(R.id.floatingAB);
-        coordinatorLayout = rootView.findViewById(R.id.coordinatorLayout);
         mFab.setOnClickListener(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         recyclerView.setHasFixedSize(true);
@@ -64,19 +62,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 repAdater.submitList(reps);
             }
         });
-
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
-            @Override
-            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-                return false;
-            }
-
-            @Override
-            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                mViewModel.delete(repAdater.getRepAt(viewHolder.getAdapterPosition())); //Swipe to delete
-                Snackbar.make(coordinatorLayout, "Record Deleted Successfully", Snackbar.LENGTH_SHORT).show();
-            }
-        }).attachToRecyclerView(recyclerView);
 
         repAdater.setOnItemClickListener(new RepAdater.OnItemClickListener() {
             @Override
