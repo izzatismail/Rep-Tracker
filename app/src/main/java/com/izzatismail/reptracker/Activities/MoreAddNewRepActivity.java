@@ -1,6 +1,7 @@
 package com.izzatismail.reptracker.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.izzatismail.reptracker.Fragments.HomeFragment;
 import com.izzatismail.reptracker.Models.Rep;
 import com.izzatismail.reptracker.Persistences.RepRepository;
 import com.izzatismail.reptracker.R;
@@ -134,7 +136,7 @@ public class MoreAddNewRepActivity extends AppCompatActivity implements View.OnC
 
         mRepRepository.insert(mRep);
 
-        Toast.makeText(getApplicationContext(), "Saved Successfully",
+        Toast.makeText(getApplicationContext(), "Record Saved Successfully",
                 Toast.LENGTH_SHORT).show();
         finish();
         Intent intent = new Intent(MoreAddNewRepActivity.this, MainActivity.class);
