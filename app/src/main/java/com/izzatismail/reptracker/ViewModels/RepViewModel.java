@@ -14,12 +14,14 @@ import java.util.List;
 public class RepViewModel extends AndroidViewModel {
     private RepRepository mRepRepo;
     private LiveData<List<Rep>> mReps;
+    private LiveData<List<Rep>> mRep5;
     private LiveData<List<Rep>> mRepsAsc;
 
     public RepViewModel(@NonNull Application application) {
         super(application);
         mRepRepo = new RepRepository(application);
         mReps = mRepRepo.retrieveRepTask();
+        mRep5 = mRepRepo.retrieveFiveRepTask();
         mRepsAsc = mRepRepo.retrieveRepTaskAsc();
     }
 
@@ -37,6 +39,10 @@ public class RepViewModel extends AndroidViewModel {
 
     public LiveData<List<Rep>> getAllReps(){
         return mReps;
+    }
+
+    public LiveData<List<Rep>> getFiveReps(){
+        return mRep5;
     }
 
     public LiveData<List<Rep>> getAllRepsAsc(){

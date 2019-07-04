@@ -33,6 +33,10 @@ public class RepRepository {
         return mRepDatabase.getRepDao().getAllRep();
     }
 
+    public LiveData<List<Rep>> retrieveFiveRepTask(){
+        return mRepDatabase.getRepDao().getFiveRep();
+    }
+
     public LiveData<List<Rep>> retrieveRepTaskAsc(){
         return mRepDatabase.getRepDao().getAllRepAsc();
     }

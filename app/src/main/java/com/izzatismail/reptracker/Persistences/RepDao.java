@@ -29,4 +29,7 @@ public interface RepDao {
 
     @Query("SELECT * FROM rep_table ORDER BY timestamp ASC")
     LiveData<List<Rep>> getAllRepAsc();
+
+    @Query("SELECT * FROM rep_table ORDER BY timestamp DESC LIMIT 5")
+    LiveData<List<Rep>> getFiveRep();
 }
