@@ -48,7 +48,7 @@ public class RepDialog extends DialogFragment {
         setWidget(rep);
 
         builder.setView(view)
-                .setTitle("Details")
+                .setTitle(rep.getTitle())
                 .setNegativeButton("Close", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -59,7 +59,7 @@ public class RepDialog extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         mViewModel.delete(rep);
-                        Toast.makeText(getActivity(), "Record Deleted Successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Workout Deleted Successfully", Toast.LENGTH_SHORT).show();
                     }
                 });
         return builder.create();

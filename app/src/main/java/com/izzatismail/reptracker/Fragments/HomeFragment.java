@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.izzatismail.reptracker.Activities.AddNewRepActivity;
@@ -36,6 +37,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     public static final String TAG = "HomeFragment";
     private RepViewModel mViewModel;
     private FloatingActionButton mFab;
+    private TextView mText, mText2;
 
     @Nullable
     @Override
@@ -47,6 +49,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         VerticalSpacingItemDecorator itemDecorator = new VerticalSpacingItemDecorator(20);
         recyclerView.addItemDecoration(itemDecorator);
         mFab = rootView.findViewById(R.id.floatingAB);
+        mText = rootView.findViewById(R.id.textNoData);
+        mText2 = rootView.findViewById(R.id.textLast5);
         mFab.setOnClickListener(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         recyclerView.setHasFixedSize(true);
@@ -55,11 +59,18 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         recyclerView.setAdapter(repAdater);
 
         mViewModel = ViewModelProviders.of(this).get(RepViewModel.class);
-        mViewModel.getAllReps().observe(this, new Observer<List<Rep>>() {
+        mViewModel.getFiveReps().observe(this, new Observer<List<Rep>>() {
             @Override
             public void onChanged(@Nullable List<Rep> reps) {
                 //Update RecyclerView
                 repAdater.submitList(reps);
+                if(reps.isEmpty()){
+                    mText.setVisibility(View.VISIBLE);
+                    mText2.setVisibility(View.GONE);
+                }else{
+                    mText.setVisibility(View.GONE);
+                    mText2.setVisibility(View.VISIBLE);
+                }
             }
         });
 

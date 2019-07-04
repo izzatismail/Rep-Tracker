@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,10 +50,12 @@ public class RepAdater extends ListAdapter<Rep, RepAdater.RepHolder> {
     public void onBindViewHolder(@NonNull RepHolder repHolder, int i) {
         Rep currentRep = getItem(i);
         repHolder.textTitle.setText(currentRep.getTitle());
-        String day = currentRep.getTimestamp().substring(0,2);
-        String month = currentRep.getTimestamp().substring(3,5);
+        Log.d("timestamp", "onBindViewHolder: timestamp " + currentRep.getTimestamp());
+        String day = currentRep.getTimestamp().substring(8,10);
+        String month = currentRep.getTimestamp().substring(5,7);
         month = Utility.getMonthFromNumber(month);
-        String year = currentRep.getTimestamp().substring(6,10);
+        String year = currentRep.getTimestamp().substring(0,4);
+        Log.d("adater", "onBindViewHolder: day " + day + " month " + month + " year " + year);
         String timestamp = day + " " + month + " " + year;
         repHolder.textTimestamp.setText(timestamp);
     }

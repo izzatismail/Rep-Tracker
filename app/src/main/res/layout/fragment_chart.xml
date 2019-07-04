@@ -13,5 +13,13 @@
 
     </com.github.mikephil.charting.charts.LineChart>
 
+    <TextView
+        android:id="@+id/textNoChartData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_data_chart"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
+
 
 </RelativeLayout>

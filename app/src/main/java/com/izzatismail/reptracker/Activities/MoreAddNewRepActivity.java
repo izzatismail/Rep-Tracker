@@ -136,7 +136,7 @@ public class MoreAddNewRepActivity extends AppCompatActivity implements View.OnC
 
         mRepRepository.insert(mRep);
 
-        Toast.makeText(getApplicationContext(), "Record Saved Successfully",
+        Toast.makeText(getApplicationContext(), "Workout Saved Successfully",
                 Toast.LENGTH_SHORT).show();
         finish();
         Intent intent = new Intent(MoreAddNewRepActivity.this, MainActivity.class);

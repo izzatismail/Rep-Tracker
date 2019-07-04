@@ -1,6 +1,5 @@
 package com.izzatismail.reptracker.Fragments;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -14,18 +13,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.izzatismail.reptracker.Activities.AddNewRepActivity;
 import com.izzatismail.reptracker.Activities.MainActivity;
 import com.izzatismail.reptracker.Models.Rep;
 import com.izzatismail.reptracker.R;
 import com.izzatismail.reptracker.Util.RepDialog;
-import com.izzatismail.reptracker.Util.RepDialogWithoutDelete;
 import com.izzatismail.reptracker.ViewModels.RepViewModel;
 
 import java.text.ParseException;
@@ -60,9 +55,9 @@ public class HistoryFragment extends Fragment implements CompactCalendarView.Com
 
                     Rep data = reps.get(i);
 
-                    String day = data.getTimestamp().substring(0,2);
-                    String month = data.getTimestamp().substring(3,5);
-                    String year = data.getTimestamp().substring(6,10);
+                    String day = data.getTimestamp().substring(8,10);
+                    String month = data.getTimestamp().substring(5,7);
+                    String year = data.getTimestamp().substring(0,4);
                     String timestamp = month + "/" + day + "/" + year;
 
                     try {
@@ -126,12 +121,12 @@ public class HistoryFragment extends Fragment implements CompactCalendarView.Com
             }
             ft.addToBackStack(null);
 
-            RepDialogWithoutDelete repDialog = RepDialogWithoutDelete.newInstance(data);
+            RepDialog repDialog = RepDialog.newInstance(data);
             Log.d(TAG, "onDayClick: Selected Note : " + data.toString());
 
             repDialog.show(ft, "Rep Dialog");
         }else{
-            Toast.makeText(getActivity(), "No Recorded Added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "No Workout Added", Toast.LENGTH_SHORT).show();
         }
     }
 
