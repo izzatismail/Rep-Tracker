@@ -18,9 +18,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -30,13 +28,11 @@ import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.izzatismail.reptracker.Activities.MainActivity;
 import com.izzatismail.reptracker.Models.Rep;
 import com.izzatismail.reptracker.R;
-import com.izzatismail.reptracker.Util.AxisValueFormatter;
 import com.izzatismail.reptracker.Util.Utility;
 import com.izzatismail.reptracker.ViewModels.RepViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class ChartFragment extends Fragment {
 
@@ -89,6 +85,7 @@ public class ChartFragment extends Fragment {
         mLineChart = view.findViewById(R.id.allChart);
         mLineChart.setDragEnabled(false);
         mLineChart.setScaleEnabled(false);
+        mLineChart.getXAxis().setEnabled(false);
         mLineChart.getDescription().setEnabled(false);
         mLineChart.getAxisRight().setEnabled(false);
         mLineChart.setNoDataText("Loading Chart Data");
@@ -115,7 +112,7 @@ public class ChartFragment extends Fragment {
                 if(reps.isEmpty() || reps.size() < 2){
                     mText.setVisibility(View.VISIBLE);
                     mLineChart.setVisibility(View.GONE);
-                }else {
+                }else{
                     for (int i = 0; i < reps.size(); i++) {
                         Log.d(TAG, "onChanged: reps : " + reps.get(i).toString());
 
@@ -188,10 +185,6 @@ public class ChartFragment extends Fragment {
                     set5.setDrawCircles(false);
                     set5.setDrawValues(false);
                     set5.setLineWidth(3f);
-
-                    XAxis xAxis = mLineChart.getXAxis();
-                    xAxis.setValueFormatter(new AxisValueFormatter(dates));
-                    xAxis.setGranularity(1);
 
                     ArrayList<ILineDataSet> dataSets = new ArrayList<>();
                     dataSets.add(set1);
@@ -269,10 +262,6 @@ public class ChartFragment extends Fragment {
                     set2.setDrawValues(false);
                     set2.setLineWidth(3f);
 
-                    XAxis xAxis = mLineChart.getXAxis();
-                    xAxis.setValueFormatter(new AxisValueFormatter(dates));
-                    xAxis.setGranularity(1);
-
                     ArrayList<ILineDataSet> dataSets = new ArrayList<>();
                     dataSets.add(set1);
                     dataSets.add(set2);
@@ -347,11 +336,6 @@ public class ChartFragment extends Fragment {
                     set2.setDrawCircles(false);
                     set2.setDrawValues(false);
                     set2.setLineWidth(3f);
-
-
-                    XAxis xAxis = mLineChart.getXAxis();
-                    xAxis.setValueFormatter(new AxisValueFormatter(dates));
-                    xAxis.setGranularity(1);
 
                     ArrayList<ILineDataSet> dataSets = new ArrayList<>();
                     dataSets.add(set1);
