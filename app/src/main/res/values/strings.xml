@@ -39,4 +39,8 @@
     <string name="no_data">Add your workout by clicking on the button</string>
     <string name="no_data_chart">Chart data unavailable. Please add at least 2 workout.</string>
     <string name="last_5">Last 5 Workouts</string>
+
+    <!--For Content Description-->
+    <string name="label_recyclerview">List of workouts</string>
+    <string name="label_fab">Button for adding workouts</string>
 </resources>

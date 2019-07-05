@@ -17,12 +17,13 @@
         android:textSize="16sp"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_rep"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
+        android:contentDescription="@string/label_recyclerview"
         android:orientation="vertical"
-        android:id="@+id/recyclerView_rep"
-        android:paddingStart="5dp"/>
+        android:paddingStart="5dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingAB"
@@ -30,8 +31,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="18dp"
-        android:src="@drawable/ic_add_white_24dp"
-        android:backgroundTint="@color/colorPrimary"/>
+        android:backgroundTint="@color/colorPrimary"
+        android:contentDescription="@string/label_fab"
+        android:src="@drawable/ic_add_white_24dp" />
 
     <TextView
         android:id="@+id/textNoData"
