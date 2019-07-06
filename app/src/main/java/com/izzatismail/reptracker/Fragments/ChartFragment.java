@@ -109,7 +109,7 @@ public class ChartFragment extends Fragment {
             @Override
             public void onChanged(final List<Rep> reps) {
 
-                if(reps.isEmpty() || reps.size() < 2){
+                if(reps.isEmpty() || reps.size() < 3){
                     mText.setVisibility(View.VISIBLE);
                     mLineChart.setVisibility(View.GONE);
                 }else{
@@ -221,7 +221,7 @@ public class ChartFragment extends Fragment {
             @Override
             public void onChanged(final List<Rep> reps) {
 
-                if(reps.isEmpty() || reps.size() < 2){
+                if(reps.isEmpty() || reps.size() < 3){
                     mText.setVisibility(View.VISIBLE);
                     mLineChart.setVisibility(View.GONE);
                 }else {
@@ -296,7 +296,7 @@ public class ChartFragment extends Fragment {
             @Override
             public void onChanged(final List<Rep> reps) {
 
-                if(reps.isEmpty() || reps.size() < 2){
+                if(reps.isEmpty() || reps.size() < 3){
                     mText.setVisibility(View.VISIBLE);
                     mLineChart.setVisibility(View.GONE);
                 }else {
