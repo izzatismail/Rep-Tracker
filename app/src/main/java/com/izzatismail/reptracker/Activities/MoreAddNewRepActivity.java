@@ -52,6 +52,8 @@ public class MoreAddNewRepActivity extends AppCompatActivity implements View.OnC
 
         getFromIntent();
         initWidgets();
+
+        setTitle(R.string.new_data);
     }
 
     private void getFromIntent() {
